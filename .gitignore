@@ -1,4 +1,3 @@
-node_modules/
-# Written by the build from the SDK.
 shim/
-types/
+node_modules/
+*.log
