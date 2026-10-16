@@ -4,6 +4,6 @@
   "description": "The time in the footer, in any timezone you pick.",
   "icon": "Clock",
   "color": "#a5b4fc",
-  "version": "1.0.1",
-  "minDeck": "0.8.0"
+  "version": "1.0.2",
+  "minDeck": "1.5.0"
 }
