@@ -63,7 +63,7 @@ export async function load(): Promise<void> {
 export async function update(patch: Partial<ClockSettings>): Promise<void> {
   settings = { ...settings, ...patch };
   emit();
-  await configWrite(CFG, JSON.stringify(settings, null, 2)).catch(() => {});
+  await configWrite(CFG, JSON.stringify(settings, null, 2)).catch((e) => console.warn("[clock] settings save failed", e));
 }
 
 /**
