@@ -10,7 +10,7 @@
 // will only show one in the tray.
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Clock as ClockIcon } from "lucide-react";
-import { Field, TextInput, Row } from "../shim/ui.js";
+import { Field, TextInput, Row, StatusItem } from "../shim/ui.js";
 import {
   DEFAULTS, format, get, getVersion, load, subscribe, update, zoneIsValid,
 } from "./settings";
@@ -38,17 +38,15 @@ export function Status() {
   const parts = [s.label, date, time].filter(Boolean);
 
   return (
-    <button
+    <StatusItem
+      icon={<ClockIcon />}
+      color="var(--text-secondary)"
+      label={parts.join(" ")}
+      title={`${s.zone || "Local time"} — click to copy`}
       // Clicking copies it: the reason to look at a clock in another zone is usually to put the
       // time into a message, and this saves retyping it.
       onClick={() => { void navigator.clipboard.writeText(time).catch(() => {}); }}
-      title={`${s.zone || "Local time"} — click to copy`}
-      className="flex items-center gap-1 whitespace-nowrap rounded px-1.5 py-1 transition-colors hover:bg-white/10"
-      style={{ color: "var(--text-secondary)" }}
-    >
-      <ClockIcon size={10} />
-      {parts.join(" ")}
-    </button>
+    />
   );
 }
 
