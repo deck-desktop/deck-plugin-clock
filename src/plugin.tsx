@@ -112,7 +112,7 @@ export function Settings() {
 
       <button
         onClick={() => void update(DEFAULTS)}
-        className="rounded-md border border-subtle bg-elev px-3 py-1.5 text-[12px] text-text-secondary transition hover:text-text-primary"
+        className="h-8 rounded-lg border border-subtle bg-elev px-3 text-[12px] text-text-secondary transition-colors hover:border-strong hover:text-text-primary"
       >
         Reset to defaults
       </button>
