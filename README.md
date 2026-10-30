@@ -1,31 +1,23 @@
-# Clock
+# Clock for Deck
 
-The time in the footer, in whichever timezone you pick.
+The time in Deck's footer, in whichever timezone you pick. There is no tab: it adds a readout to
+the footer.
 
-The smallest useful plugin here, and deliberately so: a footer readout and a settings panel, with
-no tab at all. It exists as much to show that a plugin does not have to be a whole module as to
-tell the time.
+![Clock](docs/screenshot.png)
 
-## What it exports
+- **Click the clock** to copy the time, ready to paste into a message. **Clock: copy the time** in
+  the command palette does the same.
+- Hover it to see which timezone it shows.
 
-| Export | Where it renders |
-|---|---|
-| `Status` | the footer readout |
-| `Settings` | the timezone picker |
-| `commands` | palette entry to switch zone |
+## Settings
 
-Timezones are validated against the browser's own `Intl` database rather than a bundled list, so
-anything your system knows about works.
+In Settings > Plugin settings > Clock:
 
-## Build
+- **Timezone:** any zone this machine knows, such as `Europe/Istanbul`, `America/New_York` or
+  `UTC`. Empty shows local time. A name it does not know turns the box red, and the clock shows
+  local time until it is fixed.
+- **Label:** shown before the time, useful when the zone is not yours.
+- **12-hour clock**, **Show seconds** and **Show the date** (the weekday, day and month).
+- **Reset to defaults.**
 
-```sh
-node plugins/clock/build.mjs
-```
-
-See [../README.md](../README.md) for how the build and the shims work.
-
-## Install
-
-Copy `plugin.json` and `plugin.js` into `%APPDATA%\Deck\plugins\clock\` (`Deck-Dev` for a
-debug build) and restart Deck.
+The settings are kept in Deck's config as `plugin-clock`.
